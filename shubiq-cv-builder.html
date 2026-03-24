@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHUBIQ CV - Premium CV Builder</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body class="app-print">
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Generating your CV...</div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">SHUBIQ <span>CV</span></a>
+  <ul class="nav-links">
+    <li><a href="#templates">Templates</a></li>
+    <li><a href="#builder">Builder</a></li>
+    <li><a href="#features">Features</a></li>
+  </ul>
+  <a href="#builder" class="nav-cta">Build My CV</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#templates" onclick="toggleMenu()">Templates</a>
+  <a href="#builder" onclick="toggleMenu()">Builder</a>
+  <a href="#features" onclick="toggleMenu()">Features</a>
+  <a href="#builder" onclick="toggleMenu()" style="color:var(--gold-light);">Build My CV -></a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><div class="badge-dot"></div> Trusted by 120,000+ Professionals</div>
+      <h1 class="hero-title">Build CVs That<br><em>Get You Hired</em></h1>
+      <p class="hero-desc">Six premium templates. Full editing suite. One-click PDF export. Land the interview with a CV that makes recruiters stop scrolling.</p>
+      <div class="hero-actions">
+        <a href="#builder" class="btn-primary">Start Building Free <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#templates" class="btn-ghost">View Templates</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="stat-num">6</span><span class="stat-label">Templates</span></div>
+        <div><span class="stat-num">98%</span><span class="stat-label">ATS Pass Rate</span></div>
+        <div><span class="stat-num">120K+</span><span class="stat-label">CVs Created</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="cv-stack">
+        <div class="cv-card-preview" style="background:#0d0d1a;border-color:rgba(201,168,76,.3);">
+          <div class="cv-preview-header" style="background:rgba(201,168,76,.05);">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,.2);"></div>
+            <div><div style="height:6px;width:70px;background:rgba(201,168,76,.4);border-radius:3px;margin-bottom:4px;"></div><div style="height:4px;width:50px;background:rgba(255,255,255,.1);border-radius:2px;"></div></div>
+          </div>
+          <div class="cv-preview-content"><div class="cv-preview-line med"></div><div class="cv-preview-line short"></div><div class="cv-preview-line"></div></div>
+        </div>
+        <div class="cv-card-preview" style="background:#fff;border-color:#e0e0e0;top:40px;left:50px;">
+          <div class="cv-preview-header" style="background:#f8f8f8;border-bottom:2px solid #1a1a1a;">
+            <div><div style="height:8px;width:80px;background:#1a1a1a;border-radius:2px;margin-bottom:4px;"></div><div style="height:4px;width:50px;background:#999;border-radius:2px;"></div></div>
+          </div>
+          <div class="cv-preview-content"><div class="cv-preview-line med" style="background:#e8e8e8;"></div><div class="cv-preview-line short" style="background:#e8e8e8;"></div><div class="cv-preview-line" style="background:#e8e8e8;"></div></div>
+        </div>
+        <div class="cv-card-preview" style="background:linear-gradient(135deg,#1a0533,#0b1a3d);border-color:rgba(168,85,247,.3);top:80px;left:100px;">
+          <div class="cv-preview-header" style="background:rgba(168,85,247,.1);">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(168,85,247,.25);"></div>
+            <div><div style="height:6px;width:75px;background:rgba(216,180,254,.5);border-radius:3px;margin-bottom:4px;"></div><div style="height:4px;width:50px;background:rgba(255,255,255,.15);border-radius:2px;"></div></div>
+          </div>
+          <div class="cv-preview-content"><div class="cv-preview-line med" style="background:rgba(255,255,255,.06);"></div><div class="cv-preview-line short" style="background:rgba(255,255,255,.06);"></div></div>
+        </div>
+        <div class="cv-card-preview" style="background:#0d1117;border-color:#30363d;top:120px;left:150px;">
+          <div class="cv-preview-header" style="background:#161b22;border-bottom:1px solid #30363d;">
+            <div style="display:flex;gap:5px;"><div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div><div style="width:8px;height:8px;border-radius:50%;background:#ffbd2e;"></div><div style="width:8px;height:8px;border-radius:50%;background:#28c940;"></div></div>
+            <div style="height:4px;width:80px;background:#30363d;border-radius:2px;margin-left:8px;"></div>
+          </div>
+          <div class="cv-preview-content"><div style="height:4px;width:60%;background:rgba(63,185,80,.2);border-radius:2px;margin-bottom:5px;"></div><div class="cv-preview-line" style="background:#21262d;"></div><div class="cv-preview-line short" style="background:#21262d;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATES -->
+<section id="templates">
+  <div class="section-inner">
+    <div class="templates-header reveal">
+      <div>
+        <div class="section-label">Premium Designs</div>
+        <h2 class="section-title">Choose Your<br><em>Perfect Template</em></h2>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-tab active" onclick="filterTemplates(this,'all')">All</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'exec')">Executive</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'minimal')">Minimal</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'lux')">Luxe</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'prime')">Prime</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'dark')">Dark</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'ats')">ATS</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'modern')">Modern</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'timeline')">Timeline</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'dev')">Developer</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'classic')">Classic</button>
+        <button class="filter-tab" onclick="filterTemplates(this,'modern')">Modern</button>
+      </div>
+    </div>
+    <div class="templates-grid reveal">
+
+      <div class="template-card" data-cat="exec">
+        <div class="template-thumb">
+          <div class="thumb-exec" style="height:100%;position:relative;">
+            <div class="thumb-exec-accent"></div>
+            <div style="padding-left:10px;">
+              <div class="thumb-exec-top">
+                <div class="thumb-exec-avatar"></div>
+                <div><div class="thumb-exec-name"></div><div class="thumb-exec-role"></div></div>
+              </div>
+              <div class="thumb-exec-divider"></div>
+              <div class="thumb-exec-line w80"></div>
+              <div class="thumb-exec-line w60"></div>
+              <div class="thumb-exec-line w70"></div>
+              <div class="thumb-exec-line w80"></div>
+              <div class="thumb-exec-line w60"></div>
+            </div>
+          </div>
+          <div class="template-badge">Executive</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">Onyx Executive</div>
+          <div class="template-category">Corporate | Dark | Authoritative</div>
+          <button class="template-use-btn" onclick="selectTemplate('exec')">Use This Template -></button>
+        </div>
+      </div>
+
+      <div class="template-card" data-cat="minimal">
+        <div class="template-thumb">
+          <div class="thumb-minimal" style="height:100%;">
+            <div class="thumb-min-top">
+              <div class="thumb-min-name"></div>
+              <div class="thumb-min-role"></div>
+            </div>
+            <div class="thumb-min-label"></div>
+            <div class="thumb-min-line"></div>
+            <div class="thumb-min-line w80"></div>
+            <div class="thumb-min-line w60"></div>
+            <div class="thumb-min-label" style="background:#e0e0e0;"></div>
+            <div class="thumb-min-line w80"></div>
+            <div class="thumb-min-line w60"></div>
+          </div>
+          <div class="template-badge" style="background:#1a1a1a;color:#fff;">Minimal</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">Blanc Minimal</div>
+          <div class="template-category">Clean | White | Elegant</div>
+          <button class="template-use-btn" onclick="selectTemplate('minimal')">Use This Template -></button>
+        </div>
+      </div>
+
+      <div class="template-card" data-cat="lux">
+        <div class="template-thumb">
+          <div class="thumb-creative" style="height:100%;">
+            <div class="thumb-cr-sidebar">
+              <div class="thumb-cr-dot" style="background:linear-gradient(135deg,#a855f7,#7c3aed);"></div>
+              <div class="thumb-cr-line"></div>
+              <div class="thumb-cr-dot" style="background:linear-gradient(135deg,#f59e0b,#d97706);"></div>
+              <div class="thumb-cr-line"></div>
+              <div class="thumb-cr-dot" style="background:linear-gradient(135deg,#06b6d4,#0891b2);"></div>
+            </div>
+            <div class="thumb-cr-content">
+              <div class="thumb-cr-name" style="background:rgba(216,180,254,.5);"></div>
+              <div class="thumb-cr-sub"></div>
+              <div class="thumb-cr-tag" style="background:rgba(168,85,247,.3);"></div>
+              <div class="thumb-cr-tag" style="background:rgba(245,158,11,.2);"></div>
+              <div style="height:4px;width:100%;background:rgba(255,255,255,.06);border-radius:2px;margin-top:8px;margin-bottom:5px;"></div>
+              <div style="height:4px;width:80%;background:rgba(255,255,255,.06);border-radius:2px;margin-bottom:5px;"></div>
+              <div style="height:4px;width:90%;background:rgba(255,255,255,.06);border-radius:2px;"></div>
+            </div>
+          </div>
+          <div class="template-badge" style="background:#e6c87a;color:#1a1a1a;">Luxe</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">Opal Luxe</div>
+          <div class="template-category">Luxury | Light | Editorial</div>
+          <button class="template-use-btn" onclick="selectTemplate('opal')">Use This Template -></button>
+        </div>
+      </div>
+
+      <div class="template-card" data-cat="prime">
+        <div class="template-thumb">
+          <div class="thumb-tech" style="height:100%;">
+            <div class="thumb-tech-bar">
+              <div class="thumb-tech-dot" style="background:#ff5f57;"></div>
+              <div class="thumb-tech-dot" style="background:#ffbd2e;"></div>
+              <div class="thumb-tech-dot" style="background:#28c940;"></div>
+            </div>
+            <div class="thumb-tech-prompt"></div>
+            <div class="thumb-tech-bracket"></div>
+            <div class="thumb-tech-line" style="width:80%;background:rgba(255,255,255,.06);"></div>
+            <div class="thumb-tech-line" style="width:60%;background:rgba(255,255,255,.06);"></div>
+            <div class="thumb-tech-line" style="width:70%;background:rgba(63,185,80,.15);"></div>
+            <div class="thumb-tech-line" style="width:50%;background:rgba(255,255,255,.06);"></div>
+          </div>
+          <div class="template-badge" style="background:#0ea5e9;color:#001018;">Prime</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">Atlas Prime</div>
+          <div class="template-category">Modern | Blue | Structured</div>
+          <button class="template-use-btn" onclick="selectTemplate('atlas')">Use This Template -></button>
+        </div>
+      </div>
+
+      <div class="template-card" data-cat="dark">
+        <div class="template-thumb">
+          <div class="thumb-tech" style="height:100%;background:linear-gradient(135deg,#0a0a0f,#141423);">
+            <div class="thumb-tech-bar">
+              <div class="thumb-tech-dot" style="background:#c6a85c;"></div>
+              <div class="thumb-tech-dot" style="background:#2f2f45;"></div>
+              <div class="thumb-tech-dot" style="background:#2f2f45;"></div>
+            </div>
+            <div class="thumb-tech-line" style="width:80%;background:rgba(198,168,92,.25);"></div>
+            <div class="thumb-tech-line" style="width:60%;background:rgba(255,255,255,.08);"></div>
+            <div class="thumb-tech-line" style="width:70%;background:rgba(198,168,92,.25);"></div>
+            <div class="thumb-tech-line" style="width:50%;background:rgba(255,255,255,.08);"></div>
+          </div>
+          <div class="template-badge" style="background:#c6a85c;color:#1a1a1a;">Dark</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">Obsidian Gold</div>
+          <div class="template-category">Dark | Gold | Executive</div>
+          <button class="template-use-btn" onclick="selectTemplate('obsidian')">Use This Template -></button>
+        </div>
+      </div>
+
+      <div class="template-card" data-cat="ats">
+        <div class="template-thumb">
+          <div class="thumb-minimal" style="height:100%;background:#ffffff;">
+            <div class="thumb-min-top">
+              <div class="thumb-min-name" style="width:120px;"></div>
+              <div class="thumb-min-role" style="width:80px;"></div>
+            </div>
+            <div class="thumb-min-label"></div>
+            <div class="thumb-min-line w80"></div>
+            <div class="thumb-min-line w60"></div>
+            <div class="thumb-min-label" style="background:#e0e0e0;"></div>
+            <div class="thumb-min-line w80"></div>
+            <div class="thumb-min-line w60"></div>
+          </div>
+          <div class="template-badge" style="background:#111827;color:#ffffff;">ATS</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">ATS Clean</div>
+          <div class="template-category">Single Column | White | ATS</div>
+          <button class="template-use-btn" onclick="selectTemplate('ats')">Use This Template -></button>
+        </div>
+      </div>
+
+      <div class="template-card" data-cat="modern">
+        <div class="template-thumb">
+          <div class="thumb-minimal" style="height:100%;background:linear-gradient(135deg,#f6f7fb,#ffffff);">
+            <div class="thumb-min-top">
+              <div class="thumb-min-name" style="width:140px;"></div>
+              <div class="thumb-min-role" style="width:100px;"></div>
+            </div>
+            <div class="thumb-min-line w80"></div>
+            <div class="thumb-min-line w60"></div>
+            <div class="thumb-min-label" style="background:#e0e0e0;"></div>
+            <div class="thumb-min-line w80"></div>
+            <div class="thumb-min-line w60"></div>
+          </div>
+          <div class="template-badge" style="background:#111827;color:#ffffff;">Modern</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">Nova Modern</div>
+          <div class="template-category">Header | Grid | Clean</div>
+          <button class="template-use-btn" onclick="selectTemplate('modern')">Use This Template -></button>
+        </div>
+      </div>
+
+      <div class="template-card" data-cat="timeline">
+        <div class="template-thumb">
+          <div class="thumb-minimal" style="height:100%;background:#ffffff;">
+            <div class="thumb-min-top">
+              <div class="thumb-min-name" style="width:130px;"></div>
+              <div class="thumb-min-role" style="width:90px;"></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <div style="width:4px;height:120px;background:#e5e7eb;border-radius:2px;margin-top:6px;"></div>
+              <div style="flex:1;">
+                <div class="thumb-min-line w80"></div>
+                <div class="thumb-min-line w60"></div>
+                <div class="thumb-min-line w80"></div>
+              </div>
+            </div>
+          </div>
+          <div class="template-badge" style="background:#111827;color:#ffffff;">Timeline</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">Line Timeline</div>
+          <div class="template-category">Minimal | Timeline | Clean</div>
+          <button class="template-use-btn" onclick="selectTemplate('timeline')">Use This Template -></button>
+        </div>
+      </div>
+
+      <div class="template-card" data-cat="dev">
+        <div class="template-thumb">
+          <div class="thumb-tech" style="height:100%;background:linear-gradient(135deg,#0b1020,#101a2f);">
+            <div class="thumb-tech-bar">
+              <div class="thumb-tech-dot" style="background:#38bdf8;"></div>
+              <div class="thumb-tech-dot" style="background:#22c55e;"></div>
+              <div class="thumb-tech-dot" style="background:#f59e0b;"></div>
+            </div>
+            <div class="thumb-tech-line" style="width:85%;background:rgba(56,189,248,.25);"></div>
+            <div class="thumb-tech-line" style="width:65%;background:rgba(34,197,94,.2);"></div>
+            <div class="thumb-tech-line" style="width:75%;background:rgba(245,158,11,.2);"></div>
+            <div class="thumb-tech-line" style="width:50%;background:rgba(255,255,255,.08);"></div>
+          </div>
+          <div class="template-badge" style="background:#0ea5e9;color:#001018;">Dev</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">Dev Focus</div>
+          <div class="template-category">Skills | Projects | Tech</div>
+          <button class="template-use-btn" onclick="selectTemplate('dev')">Use This Template -></button>
+        </div>
+      </div>
+
+      <div class="template-card" data-cat="classic">
+        <div class="template-thumb">
+          <div class="thumb-aurum" style="height:100%;">
+            <div class="thumb-aurum-top">
+              <div>
+                <div class="thumb-aurum-name"></div>
+                <div class="thumb-aurum-role"></div>
+              </div>
+              <div class="thumb-aurum-chip"></div>
+            </div>
+            <div class="thumb-aurum-line" style="width:85%;"></div>
+            <div class="thumb-aurum-line" style="width:70%;"></div>
+            <div class="thumb-aurum-line" style="width:90%;"></div>
+            <div class="thumb-aurum-line" style="width:60%;"></div>
+          </div>
+          <div class="template-badge" style="background:#c9a84c;color:#1a1a1a;">Classic</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">Aurum Classic</div>
+          <div class="template-category">Heritage | Gold | Timeless</div>
+          <button class="template-use-btn" onclick="selectTemplate('aurum')">Use This Template -></button>
+        </div>
+      </div>
+
+      <div class="template-card" data-cat="modern">
+        <div class="template-thumb">
+          <div class="thumb-cobalt" style="height:100%;">
+            <div class="thumb-cobalt-rail"></div>
+            <div>
+              <div class="thumb-cobalt-name"></div>
+              <div class="thumb-cobalt-line" style="width:85%;"></div>
+              <div class="thumb-cobalt-line" style="width:70%;"></div>
+              <div class="thumb-cobalt-line" style="width:90%;"></div>
+            </div>
+          </div>
+          <div class="template-badge" style="background:#2563eb;color:#e5edff;">Modern</div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">Cobalt Pro</div>
+          <div class="template-category">Clean | Blue | Structured</div>
+          <button class="template-use-btn" onclick="selectTemplate('cobalt')">Use This Template -></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BUILDER -->
+<section id="builder">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:600px;margin:0 auto 56px;" class="reveal">
+      <div class="section-label" style="justify-content:center;">Live Builder</div>
+      <h2 class="section-title">Fill In. Preview.<br><em>Download.</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Edit every detail. See changes instantly in your chosen template. Export to PDF in one click.</p>
+    </div>
+    <div class="builder-app reveal">
+
+      <!-- FORM PANEL -->
+      <div class="form-panel">
+        <div class="form-tabs">
+          <button class="form-tab active" onclick="showTab(this,'tab-template')">Template</button>
+          <button class="form-tab" onclick="showTab(this,'tab-personal')">Personal</button>
+          <button class="form-tab" onclick="showTab(this,'tab-experience')">Experience</button>
+          <button class="form-tab" onclick="showTab(this,'tab-education')">Education</button>
+          <button class="form-tab" onclick="showTab(this,'tab-skills')">Skills</button>
+          <button class="form-tab" onclick="showTab(this,'tab-projects')">Projects</button>
+          <button class="form-tab" onclick="showTab(this,'tab-certs')">Certs</button>
+        </div>
+        <div class="form-body">
+
+          <!-- TEMPLATE TAB -->
+          <div id="tab-template" class="form-section active">
+            <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:18px;">Choose a template style for your CV. This will update the live preview instantly.</p>
+            <div class="template-selector">
+              <div class="tmpl-opt selected" onclick="selectTemplate('exec')" id="opt-exec">
+                <div class="tmpl-opt-swatch" style="background:linear-gradient(135deg,#0d0d1a,#1a1030);border:1px solid rgba(201,168,76,.3);"></div>
+                <div class="tmpl-opt-name">Onyx Executive</div>
+              </div>
+              <div class="tmpl-opt" onclick="selectTemplate('minimal')" id="opt-minimal">
+                <div class="tmpl-opt-swatch" style="background:#fff;border:1px solid #e0e0e0;"></div>
+                <div class="tmpl-opt-name" style="color:#888;">Blanc Minimal</div>
+              </div>
+              <div class="tmpl-opt" onclick="selectTemplate('opal')" id="opt-opal">
+                <div class="tmpl-opt-swatch" style="background:linear-gradient(135deg,#1a0533,#0b1a3d);border:1px solid rgba(168,85,247,.3);"></div>
+                <div class="tmpl-opt-name">Opal Luxe</div>
+              </div>
+              <div class="tmpl-opt" onclick="selectTemplate('atlas')" id="opt-atlas">
+                <div class="tmpl-opt-swatch" style="background:#0d1117;border:1px solid #30363d;"></div>
+                <div class="tmpl-opt-name">Atlas Prime</div>
+              </div>
+              <div class="tmpl-opt" onclick="selectTemplate('obsidian')" id="opt-obsidian">
+                <div class="tmpl-opt-swatch" style="background:linear-gradient(135deg,#0a0a0f,#141423);border:1px solid rgba(198,168,92,.5);"></div>
+                <div class="tmpl-opt-name">Obsidian Gold</div>
+              </div>
+              <div class="tmpl-opt" onclick="selectTemplate('ats')" id="opt-ats">
+                <div class="tmpl-opt-swatch" style="background:#ffffff;border:1px solid #d1d5db;"></div>
+                <div class="tmpl-opt-name" style="color:#444;">ATS Clean</div>
+              </div>
+              <div class="tmpl-opt" onclick="selectTemplate('modern')" id="opt-modern">
+                <div class="tmpl-opt-swatch" style="background:linear-gradient(135deg,#f6f7fb,#ffffff);border:1px solid #e5e7eb;"></div>
+                <div class="tmpl-opt-name">Nova Modern</div>
+              </div>
+              <div class="tmpl-opt" onclick="selectTemplate('timeline')" id="opt-timeline">
+                <div class="tmpl-opt-swatch" style="background:#ffffff;border:1px solid #e5e7eb;"></div>
+                <div class="tmpl-opt-name">Line Timeline</div>
+              </div>
+              <div class="tmpl-opt" onclick="selectTemplate('dev')" id="opt-dev">
+                <div class="tmpl-opt-swatch" style="background:linear-gradient(135deg,#0b1020,#101a2f);border:1px solid #1f2937;"></div>
+                <div class="tmpl-opt-name">Dev Focus</div>
+              </div>
+              <div class="tmpl-opt" onclick="selectTemplate('aurum')" id="opt-aurum">
+                <div class="tmpl-opt-swatch" style="background:linear-gradient(135deg,#fbf6ef,#f1e7d6);border:1px solid #e8dcc8;"></div>
+                <div class="tmpl-opt-name">Aurum Classic</div>
+              </div>
+              <div class="tmpl-opt" onclick="selectTemplate('cobalt')" id="opt-cobalt">
+                <div class="tmpl-opt-swatch" style="background:linear-gradient(135deg,#f5f8ff,#e7f0ff);border:1px solid #c7d2fe;"></div>
+                <div class="tmpl-opt-name">Cobalt Pro</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Summary / Objective</label>
+              <textarea class="form-textarea" id="f-summary" rows="4" placeholder="A passionate professional with 5+ years of experience in..." oninput="updatePreview()"></textarea>
+            </div>
+          </div>
+
+          <!-- PERSONAL TAB -->
+          <div id="tab-personal" class="form-section">
+            <div class="form-group">
+              <label class="form-label">Profile Photo</label>
+              <div class="photo-upload" onclick="document.getElementById('photoInput').click()">
+                <img id="photoPreview" class="photo-preview" style="display:none;" alt="Photo">
+                <div class="photo-placeholder" id="photoPlaceholder">Photo</div>
+                <div class="photo-upload-text">Click to upload photo (optional)</div>
+              </div>
+              <input type="file" id="photoInput" accept="image/*" style="display:none;" onchange="handlePhoto(event)">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-input" id="f-firstname" placeholder="John" oninput="updatePreview()">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-input" id="f-lastname" placeholder="Doe" oninput="updatePreview()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Job Title / Role</label>
+              <input type="text" class="form-input" id="f-jobtitle" placeholder="Senior Product Manager" oninput="updatePreview()">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input" id="f-email" placeholder="john@email.com" oninput="updatePreview()">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone</label>
+                <input type="tel" class="form-input" id="f-phone" placeholder="+91 98765 43210" oninput="updatePreview()">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Location</label>
+                <input type="text" class="form-input" id="f-location" placeholder="Mumbai, India" oninput="updatePreview()">
+              </div>
+              <div class="form-group">
+                <label class="form-label">LinkedIn</label>
+                <input type="text" class="form-input" id="f-linkedin" placeholder="linkedin.com/in/johndoe" oninput="updatePreview()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Website / Portfolio</label>
+              <input type="text" class="form-input" id="f-website" placeholder="johndoe.com" oninput="updatePreview()">
+            </div>
+          </div>
+
+          <!-- EXPERIENCE TAB -->
+          <div id="tab-experience" class="form-section">
+            <div id="exp-list"></div>
+            <button class="add-entry-btn" onclick="addExperience()">+ Add Work Experience</button>
+          </div>
+
+          <!-- EDUCATION TAB -->
+          <div id="tab-education" class="form-section">
+            <div id="edu-list"></div>
+            <button class="add-entry-btn" onclick="addEducation()">+ Add Education</button>
+          </div>
+
+          <!-- SKILLS TAB -->
+          <div id="tab-skills" class="form-section">
+            <div class="form-group">
+              <label class="form-label">Languages</label>
+              <input type="text" class="form-input" id="f-languages" placeholder="English (Native), Hindi (Fluent), French (Basic)" oninput="updatePreview()">
+            </div>
+            <div id="skills-list"></div>
+            <button class="add-entry-btn" onclick="addSkill()">+ Add Skill</button>
+          </div>
+
+          <!-- PROJECTS TAB -->
+          <div id="tab-projects" class="form-section">
+            <div id="proj-list"></div>
+            <button class="add-entry-btn" onclick="addProject()">+ Add Project</button>
+          </div>
+
+          <!-- CERTS TAB -->
+          <div id="tab-certs" class="form-section">
+            <div id="certs-list"></div>
+            <button class="add-entry-btn" onclick="addCert()">+ Add Certification</button>
+          </div>
+
+        </div>
+        <div class="form-actions">
+          <button class="btn-primary" onclick="downloadPDF()">Download PDF</button>
+          <button class="btn-ghost" onclick="printCV()">Print</button>
+        </div>
+      </div>
+
+      <!-- PREVIEW PANEL -->
+      <div class="preview-panel">
+        <div class="preview-toolbar">
+          <div>
+            <div class="preview-title">Live Preview</div>
+            <div class="preview-subtitle">Updates as you type</div>
+          </div>
+          <div class="preview-actions">
+            <button class="preview-btn ghost" onclick="printCV()">Print View</button>
+            <button class="preview-btn primary" onclick="downloadPDF()">Download PDF</button>
+          </div>
+        </div>
+        <div class="preview-frame" id="cv-preview-frame">
+          <!-- CV rendered here -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:500px;margin:0 auto 56px;" class="reveal">
+      <div class="section-label" style="justify-content:center;">Why SHUBIQ CV</div>
+      <h2 class="section-title">Everything You Need<br>to <em>Land the Role</em></h2>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feature-card"><div class="feature-icon">PRO</div><div class="feature-title">6 Premium Templates</div><div class="feature-desc">Executive, Minimal, Creative, Dev, Classic, and Modern styles - each crafted for its audience and industry.</div></div>
+      <div class="feature-card"><div class="feature-icon">LIVE</div><div class="feature-title">Instant Live Preview</div><div class="feature-desc">See every change reflected in real time. What you fill in is exactly what gets printed.</div></div>
+      <div class="feature-card"><div class="feature-icon">PDF</div><div class="feature-title">One-Click PDF Export</div><div class="feature-desc">Export a pixel-perfect PDF ready to attach to any job application - no layout surprises.</div></div>
+      <div class="feature-card"><div class="feature-icon">A4</div><div class="feature-title">Print-Ready Layout</div><div class="feature-desc">Every template is tested on A4. Clean margins, proper typography - ready to hand over in person.</div></div>
+      <div class="feature-card"><div class="feature-icon">RESP</div><div class="feature-title">Fully Responsive</div><div class="feature-desc">Build your CV on desktop, tablet, or mobile. The builder works beautifully on any screen size.</div></div>
+      <div class="feature-card"><div class="feature-icon">ATS</div><div class="feature-title">All Sections Included</div><div class="feature-desc">Personal info, work experience, education, skills, projects, and certifications - everything recruiters need.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">SHUBIQ <span>CV</span></div>
+      <p class="footer-desc">Premium CV builder for professionals who take their career seriously.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Product</div>
+      <ul class="footer-links"><li><a href="#templates">Templates</a></li><li><a href="#builder">Builder</a></li><li><a href="#features">Features</a></li></ul>
+    </div>
+    <div>
+      <div class="footer-heading">Resources</div>
+      <ul class="footer-links"><li><a href="#">CV Guide</a></li><li><a href="#">Career Blog</a></li><li><a href="#">ATS Tips</a></li></ul>
+    </div>
+    <div>
+      <div class="footer-heading">Company</div>
+      <ul class="footer-links"><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>(c) 2025 SHUBIQ CV. All rights reserved.</span>
+    <span style="font-family:var(--serif);color:var(--gold-dim);font-style:italic;">Built for those who aim higher.</span>
+  </div>
+</footer>
+
+<!-- PRINT AREA (hidden) -->
+<div id="cv-print-area" style="display:none;"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
